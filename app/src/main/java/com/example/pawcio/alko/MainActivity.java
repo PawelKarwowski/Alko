@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
 
 
-
             switch (radioGroup.getCheckedRadioButtonId()) {
                 case R.id.radioButton_men:
                     factor = 0.7;
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 default:
                     Toast.makeText(getApplicationContext(), "Aby dokonać wyliczenia musisz wybrać płeć i uzupełnić dane",
                             Toast.LENGTH_LONG).show();
-                break;
+                    break;
             }
 
 
@@ -68,13 +66,18 @@ public class MainActivity extends AppCompatActivity {
 
             final double beer_GOA = (data[1] * 10) / 250;
             double wine_GOA = (data[2] * 10) / 120;
-            double vodka_GOA = (data[3] * 10) / 30;
+            double vodka_GOA = (data[3] * 10) / 40;
             double result = ((beer_GOA + wine_GOA + vodka_GOA) / (factor * data[0])) - (0.15 * data[4]);
 
-            DecimalFormat df = new DecimalFormat("#.####");
-            result = Double.valueOf(df.format(result));
+            if (result < 0)
+            {
+                result = 0.0000;
+            }
 
-            final String BAC = Double.toString(result);
+
+            double result1 = Math.round(result * 10000.0) / 10000.0;
+
+           final String BAC = Double.toString(result1);
 
 
             // DIALOG //
@@ -82,20 +85,19 @@ public class MainActivity extends AppCompatActivity {
 
            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
             builder1.setTitle("Wynik");
-            if (result > 0.2)
+            if (result > 0)
             {
                 String alert1 = "W tym momencie masz: " + BAC + " ‰";
                 builder1.setMessage(alert1 +"\n");
             }
-            if (result <= 0.2)
+            else
             {
-                String alert3 = "W tym momencie masz: " + BAC + " ‰";
-                builder1.setMessage(alert3 +"\n");
+                builder1.setMessage("Masz 0 ‰");
             }
+
+
             builder1.setCancelable(true);
 
-
-            final double finalResult = result;
             builder1.setPositiveButton(
                     "Co dalej?",
                     new DialogInterface.OnClickListener() {

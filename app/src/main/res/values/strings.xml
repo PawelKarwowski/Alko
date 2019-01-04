@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Alko</string>
+
+
+        <string-array name="Country">
+            <item>Polska</item>
+            <item>Niemcy</item>
+            <item>Czechy</item>
+            <item>Słowacja</item>
+            <item>Ukraina</item>
+            <item>Białoruś</item>
+            <item>Litwa</item>
+            <item>Rosja</item>
+        </string-array>
+
 </resources>
+
