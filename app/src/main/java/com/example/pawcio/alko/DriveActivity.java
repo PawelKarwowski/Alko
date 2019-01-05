@@ -1,18 +1,22 @@
 package com.example.pawcio.alko;
 
-import android.content.Intent;
+
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
+
+
 
 public class DriveActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     double resultatDriveActivity;
     Spinner spinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,63 +33,96 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        /*switch (radioGroup.getCheckedRadioButtonId()) {
-            case R.id.radioButton_men:
-                factor = 0.7;
-                break;
-            case R.id.radioButton_women:
-                factor = 0.65;
-                break;
-            default:
-                Toast.makeText(getApplicationContext(), "Aby dokonać wyliczenia musisz wybrać płeć i uzupełnić dane",
-                        Toast.LENGTH_LONG).show();
-                break;
-        }*/
-
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         String Text = parent.getSelectedItem().toString();
+
+
+
         if(Text.equals("Polska")){
+            double legalLimit = 0.2;
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(DriveActivity.this);
+            builder1.setTitle("Rezultat");
+            builder1.setCancelable(true);
+            builder1.setNegativeButton(
+                    "Wyjdź",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            if (resultatDriveActivity >= legalLimit){
+                builder1.setMessage("Dupa");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+            else {
+                builder1.setMessage("Dupa123");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+        }
+
+        if(Text.equals("Czechy")){
+            double legalLimit = 0.0;
+            if (resultatDriveActivity >= legalLimit){
+
+
+            }
+        }
+
+        if(Text.equals("Słowacja")){
+            double legalLimit = 0.0;
+            if (resultatDriveActivity >= legalLimit){
+
+
+            }
+        }
+
+        if(Text.equals("Ukraina")){
             double legalLimit = 0.2;
             if (resultatDriveActivity >= legalLimit){
 
-                Toast.makeText(getApplicationContext(), "Zawartość alkoholu w Twojej krwi nie pozwala Ci prowadzić pojazdu w tym kraju.",
-                        Toast.LENGTH_LONG).show();
+
+            }
+        }
+
+        if(Text.equals("Białoruś")){
+            double legalLimit = 0.0;
+            if (resultatDriveActivity >= legalLimit){
+
+
+            }
+        }
+
+        if(Text.equals("Litwa")){
+            double legalLimit = 0.4;
+            if (resultatDriveActivity >= legalLimit){
+
+
             }
             else {
-                Toast.makeText(getApplicationContext(), "Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.",
-                        Toast.LENGTH_LONG).show();
+
             }
         }
-        if(Text.equals("Czechy")){
 
-        }
-        if(Text.equals("Słowacja")){
-
-        }
-        if(Text.equals("Ukraina")){
-
-        }
-        if(Text.equals("Białoruś")){
-
-        }
-        if(Text.equals("Litwa")){
-
-        }
         if(Text.equals("Rosja")){
+            double legalLimit = 0.3;
+            if (resultatDriveActivity >= legalLimit){
 
+
+            }
         }
-
-
-
-
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
+
 }

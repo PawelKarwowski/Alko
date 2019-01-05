@@ -7,12 +7,15 @@ package com.example.pawcio.alko;
         import android.widget.Button;
         import android.widget.TextView;
 
+
 public class Result extends AppCompatActivity {
 
     TextView BAC_result;
     TextView textView_Result;
     Button Button_ResultActivity;
     double resultat;
+    TextView textView_test;
+
 
 
     @Override
@@ -77,6 +80,21 @@ public class Result extends AppCompatActivity {
                 startActivity(activityChangeIntent);
             }
         });
+
+
+
+        double hoursDecimal = (resultat/0.15);
+        double secondsDecimal = hoursDecimal * 3600;
+        double rounded = Math.round(secondsDecimal);
+        int a = (int) Math.round(rounded);
+        int hours = a / 3600;
+        int minutes = (a % 3600) / 60;
+        String timeString = String.format("%02d:%02d", hours, minutes);
+        a--;
+        textView_test = (TextView) findViewById(R.id.textView_test);
+
+        textView_test.setText(timeString);
+
     }
 }
 
