@@ -13,8 +13,9 @@ public class Result extends AppCompatActivity {
     TextView BAC_result;
     TextView textView_Result;
     Button Button_ResultActivity;
-    double resultat;
     TextView textView_test;
+
+    int TestTime = 870;
 
 
 
@@ -29,8 +30,7 @@ public class Result extends AppCompatActivity {
         final String anotherActivityBAC = getIntent().getStringExtra("BAC");
         BAC_result.setText("Twój wynik to: " + getIntent().getStringExtra("BAC") + " ‰");
 
-
-        resultat = Double.valueOf(getIntent().getStringExtra("BAC"));
+        double resultat = Double.valueOf(getIntent().getStringExtra("BAC"));
         if (resultat >= 0 && resultat <= 0.3)
         {
             String objawy = "Brak znaczących objawów.";
@@ -82,18 +82,44 @@ public class Result extends AppCompatActivity {
         });
 
 
-
         double hoursDecimal = (resultat/0.15);
-        double secondsDecimal = hoursDecimal * 3600;
-        double rounded = Math.round(secondsDecimal);
+        double milisecondsDecimal = hoursDecimal * 3600;
+        double rounded = Math.round(milisecondsDecimal);
         int a = (int) Math.round(rounded);
-        int hours = a / 3600;
-        int minutes = (a % 3600) / 60;
-        String timeString = String.format("%02d:%02d", hours, minutes);
-        a--;
-        textView_test = (TextView) findViewById(R.id.textView_test);
 
-        textView_test.setText(timeString);
+        /*int hours = a / 3600;
+        int minutes = (a % 3600) / 60;
+        String timeString = String.format("%02d:%02d", hours, minutes);*/
+
+
+        textView_test = (TextView) findViewById(R.id.textView_test);
+       // textView_test.setText(timeString);
+
+        Thread t = new Thread(){
+            @Override
+                public void run(){
+                while(!isInterrupted()){
+
+                    try {
+                        Thread.sleep(1000);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                TestTime--; // Tutaj chce dać zmienną "a", która mam zedeklarowaną wyżej. Pojawia się niesety problem, którego nie jestem w stanie przeskoczyć bo nie znam sposobu na jego rozwiązanie.
+                                textView_test.setText(String.valueOf(TestTime)); //Ze zmienną TestTime, która jest zadeklarowana globalnie jest luxio, odlicza pieknie w dół co sekunda, natomiast z tą z "a" nawet final a nie chce się bawić :(
+                            }
+                        });
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        };
+
+        t.start();
 
     }
 }

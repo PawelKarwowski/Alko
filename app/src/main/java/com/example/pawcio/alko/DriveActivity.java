@@ -39,6 +39,8 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         String Text = parent.getSelectedItem().toString();
+        String canDrive = "Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.";
+        String cantDrive = "Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.";
         AlertDialog.Builder builder1 = new AlertDialog.Builder(DriveActivity.this);
         builder1.setTitle("Rezultat:");
         builder1.setCancelable(true);
@@ -53,12 +55,12 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
             double legalLimit = 0.2;
 
             if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
             else {
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
@@ -68,12 +70,12 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
             double legalLimit = 0.5;
 
             if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
             else {
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
@@ -82,12 +84,12 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
         if(Text.equals("Czechy")){
             double legalLimit = 0.0;
             if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
             else {
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
@@ -96,12 +98,12 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
         if(Text.equals("Słowacja")){
             double legalLimit = 0.0;
             if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
             else {
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
@@ -110,12 +112,12 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
         if(Text.equals("Ukraina")){
             double legalLimit = 0.2;
             if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
             else {
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
@@ -124,12 +126,12 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
         if(Text.equals("Białoruś")){
             double legalLimit = 0.0;
             if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
             else {
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
@@ -138,12 +140,12 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
         if(Text.equals("Litwa")){
             double legalLimit = 0.4;
             if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
             else {
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
@@ -152,12 +154,12 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
         if(Text.equals("Rosja")){
             double legalLimit = 0.3;
             if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
             else {
-                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                builder1.setMessage(canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }

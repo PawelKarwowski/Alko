@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(MainActivity.this, Result.class);
                             intent.putExtra("BAC", BAC);
                             startActivity(intent);
+
                         }
                     });
 
