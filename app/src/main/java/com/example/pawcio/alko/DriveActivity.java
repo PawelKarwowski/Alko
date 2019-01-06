@@ -39,28 +39,41 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         String Text = parent.getSelectedItem().toString();
-
-
-
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(DriveActivity.this);
+        builder1.setTitle("Rezultat:");
+        builder1.setCancelable(true);
+        builder1.setNegativeButton(
+                "Cofnij",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
         if(Text.equals("Polska")){
             double legalLimit = 0.2;
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(DriveActivity.this);
-            builder1.setTitle("Rezultat");
-            builder1.setCancelable(true);
-            builder1.setNegativeButton(
-                    "Wyjdź",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
+
             if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage("Dupa");
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
             else {
-                builder1.setMessage("Dupa123");
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+        }
+
+        if(Text.equals("Niemcy")){
+            double legalLimit = 0.5;
+
+            if (resultatDriveActivity >= legalLimit){
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+            else {
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
@@ -69,51 +82,84 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
         if(Text.equals("Czechy")){
             double legalLimit = 0.0;
             if (resultatDriveActivity >= legalLimit){
-
-
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+            else {
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
             }
         }
 
         if(Text.equals("Słowacja")){
             double legalLimit = 0.0;
             if (resultatDriveActivity >= legalLimit){
-
-
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+            else {
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
             }
         }
 
         if(Text.equals("Ukraina")){
             double legalLimit = 0.2;
             if (resultatDriveActivity >= legalLimit){
-
-
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+            else {
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
             }
         }
 
         if(Text.equals("Białoruś")){
             double legalLimit = 0.0;
             if (resultatDriveActivity >= legalLimit){
-
-
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+            else {
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
             }
         }
 
         if(Text.equals("Litwa")){
             double legalLimit = 0.4;
             if (resultatDriveActivity >= legalLimit){
-
-
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
             }
             else {
-
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
             }
         }
 
         if(Text.equals("Rosja")){
             double legalLimit = 0.3;
             if (resultatDriveActivity >= legalLimit){
-
-
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+            else {
+                builder1.setMessage("Zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.");
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
             }
         }
     }
