@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 public class WelcomeActivity extends AppCompatActivity {
-    private static int TIME_OUT=2500;
+    private static int TIME_OUT=1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +22,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 finish();
             }
         },TIME_OUT);
+
+
+        ImageView logoImageView = (ImageView) findViewById(R.id.imageView_logo);
+        logoImageView.setImageResource(R.drawable.logo);
     }
 }

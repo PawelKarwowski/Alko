@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     factor = 0.65;
                     break;
                 default:
+                    factor = 0.0;
                     Toast.makeText(getApplicationContext(), "Aby dokonać wyliczenia musisz wybrać płeć i uzupełnić dane",
                             Toast.LENGTH_LONG).show();
                     break;
@@ -67,6 +69,15 @@ public class MainActivity extends AppCompatActivity {
             final double beer_GOA = (data[1] * 10) / 250;
             double wine_GOA = (data[2] * 10) / 120;
             double vodka_GOA = (data[3] * 10) / 40;
+
+            if (data[0]==0)
+            {
+
+                Toast toastWeight = Toast.makeText(MainActivity.this, "Waga nie może być równa 0.", Toast.LENGTH_LONG);
+                toastWeight.setGravity(Gravity.BOTTOM | Gravity.BOTTOM, 0, 325);
+                toastWeight.show();
+
+            }
             double result = ((beer_GOA + wine_GOA + vodka_GOA) / (factor * data[0])) - (0.15 * data[4]);
 
             if (result < 0)
@@ -77,18 +88,23 @@ public class MainActivity extends AppCompatActivity {
 
             double result1 = Math.round(result * 10000.0) / 10000.0;
 
-           final String BAC = Double.toString(result1);
+            final String BAC = Double.toString(result1);
 
 
             // DIALOG //
 
 
-           AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
             builder1.setTitle("Wynik");
-            if (result > 0)
+            if (result > 0 && !(BAC.equals("9.223372036854776E14")))
             {
                 String alert1 = "W tym momencie masz: " + BAC + " ‰";
                 builder1.setMessage(alert1 +"\n");
+            }
+            else if (BAC.equals("9.223372036854776E14"))
+            {
+                String alert2 = "Sprawdź czy poprawnie uzupełniłeś wszystkie pola.";
+                builder1.setMessage(alert2+"\n");
             }
             else
             {
