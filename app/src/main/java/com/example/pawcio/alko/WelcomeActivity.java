@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 public class WelcomeActivity extends AppCompatActivity {
-    private static int TIME_OUT=1500;
+    private static int TIME_OUT = 1300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(homeIntent);
                 finish();
             }
-        },TIME_OUT);
+        }, TIME_OUT);
 
 
         ImageView logoImageView = (ImageView) findViewById(R.id.imageView_logo);

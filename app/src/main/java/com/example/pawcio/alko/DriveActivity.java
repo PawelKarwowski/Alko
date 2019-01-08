@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 
-
 public class DriveActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     double resultatDriveActivity;
@@ -26,7 +25,7 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
 
         resultatDriveActivity = Double.valueOf(getIntent().getStringExtra("BAC_Result"));
 
-        spinner = (Spinner)findViewById(R.id.Spinner_Drive);
+        spinner = (Spinner) findViewById(R.id.Spinner_Drive);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Country, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -40,7 +39,7 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
         String Text = parent.getSelectedItem().toString();
         ImageView myImageView = (ImageView) findViewById(R.id.imageView_BAC);
 
-        String levelBAC = "W tym momencie w Twoim organizmie znajduje się około " + getIntent().getStringExtra("BAC_Result") + " ‰ alkoholu." ;
+        String levelBAC = "W tym momencie w Twoim organizmie znajduje się około " + getIntent().getStringExtra("BAC_Result") + " ‰ alkoholu.";
         String canDrive = "Taka zawartość alkoholu w Twojej krwi pozwala Ci na prowadzenie pojazdu w tym kraju.";
         String cantDrive = "Taka zawartość alkoholu w Twojej krwi nie pozwala Ci na prowadzenie pojazdu w tym kraju.";
         AlertDialog.Builder builder1 = new AlertDialog.Builder(DriveActivity.this);
@@ -53,123 +52,115 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
                         dialog.cancel();
                     }
                 });
-        if(Text.equals("Polska")){
+        if (Text.equals("Polska")) {
             double legalLimit = 0.2;
             myImageView.setImageResource(R.drawable.mappoland);
 
-            if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage(levelBAC + "\n"+ cantDrive);
+            if (resultatDriveActivity >= legalLimit) {
+                builder1.setMessage(levelBAC + "\n" + cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
-            }
-            else {
-                builder1.setMessage(levelBAC + "\n"+ canDrive);
+            } else {
+                builder1.setMessage(levelBAC + "\n" + canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
         }
 
-        if(Text.equals("Niemcy")){
+        if (Text.equals("Niemcy")) {
             double legalLimit = 0.5;
             myImageView.setImageResource(R.drawable.mapgermany);
 
-            if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage(levelBAC + "\n"+ cantDrive);
+            if (resultatDriveActivity >= legalLimit) {
+                builder1.setMessage(levelBAC + "\n" + cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
-            }
-            else {
-                builder1.setMessage(levelBAC + "\n"+ canDrive);
+            } else {
+                builder1.setMessage(levelBAC + "\n" + canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
         }
 
-        if(Text.equals("Czechy")){
+        if (Text.equals("Czechy")) {
             double legalLimit = 0.0;
             myImageView.setImageResource(R.drawable.mapczech);
-            if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage(levelBAC + "\n"+ cantDrive);
+            if (resultatDriveActivity >= legalLimit) {
+                builder1.setMessage(levelBAC + "\n" + cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
-            }
-            else {
-                builder1.setMessage(levelBAC + "\n"+ canDrive);
+            } else {
+                builder1.setMessage(levelBAC + "\n" + canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
         }
 
-        if(Text.equals("Słowacja")){
+        if (Text.equals("Słowacja")) {
             double legalLimit = 0.0;
             myImageView.setImageResource(R.drawable.mapslovakia);
-            if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage(levelBAC + "\n"+ cantDrive);
+            if (resultatDriveActivity >= legalLimit) {
+                builder1.setMessage(levelBAC + "\n" + cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
-            }
-            else {
-                builder1.setMessage(levelBAC + "\n"+ canDrive);
+            } else {
+                builder1.setMessage(levelBAC + "\n" + canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
         }
 
-        if(Text.equals("Ukraina")){
+        if (Text.equals("Ukraina")) {
             double legalLimit = 0.2;
             myImageView.setImageResource(R.drawable.mapukraina);
-            if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage(levelBAC + "\n"+ cantDrive);
+            if (resultatDriveActivity >= legalLimit) {
+                builder1.setMessage(levelBAC + "\n" + cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
-            }
-            else {
-                builder1.setMessage(levelBAC + "\n"+ canDrive);
+            } else {
+                builder1.setMessage(levelBAC + "\n" + canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
         }
 
-        if(Text.equals("Białoruś")){
+        if (Text.equals("Białoruś")) {
             double legalLimit = 0.0;
             myImageView.setImageResource(R.drawable.mapbialorus);
-            if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage(levelBAC + "\n"+ cantDrive);
+            if (resultatDriveActivity >= legalLimit) {
+                builder1.setMessage(levelBAC + "\n" + cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
-            }
-            else {
-                builder1.setMessage(levelBAC + "\n"+ canDrive);
+            } else {
+                builder1.setMessage(levelBAC + "\n" + canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
         }
 
-        if(Text.equals("Litwa")){
+        if (Text.equals("Litwa")) {
             double legalLimit = 0.4;
             myImageView.setImageResource(R.drawable.maplithuana);
-            if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage(levelBAC + "\n"+ cantDrive);
+            if (resultatDriveActivity >= legalLimit) {
+                builder1.setMessage(levelBAC + "\n" + cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
-            }
-            else {
-                builder1.setMessage(levelBAC + "\n"+ canDrive);
+            } else {
+                builder1.setMessage(levelBAC + "\n" + canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
         }
 
-        if(Text.equals("Rosja")){
+        if (Text.equals("Rosja")) {
             double legalLimit = 0.3;
             myImageView.setImageResource(R.drawable.maprussia);
-            if (resultatDriveActivity >= legalLimit){
-                builder1.setMessage(levelBAC + "\n"+ cantDrive);
+            if (resultatDriveActivity >= legalLimit) {
+                builder1.setMessage(levelBAC + "\n" + cantDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
-            }
-            else {
-                builder1.setMessage(levelBAC + "\n"+ canDrive);
+            } else {
+                builder1.setMessage(levelBAC + "\n" + canDrive);
                 AlertDialog alert11 = builder1.create();
                 alert11.show();
             }
@@ -180,7 +171,6 @@ public class DriveActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
 
 
 }

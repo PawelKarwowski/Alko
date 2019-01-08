@@ -14,7 +14,7 @@ public class Result extends AppCompatActivity {
     TextView textView_Result;
     Button Button_ResultActivity;
     TextView textView_test;
-    Thread t;
+    // Thread t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,13 @@ public class Result extends AppCompatActivity {
         BAC_result = (TextView) findViewById(R.id.TextView_Result_BAC);
         textView_Result = (TextView) findViewById(R.id.textView_result);
         final String anotherActivityBAC = getIntent().getStringExtra("BAC");
-        BAC_result.setText("Twój wynik to: " + getIntent().getStringExtra("BAC") + " ‰");
+
+
+        if (getIntent().getStringExtra("BAC").equals("9.223372036854776E14")) {
+            BAC_result.setText("Uzupełnij dane poprawnie.");
+        } else {
+            BAC_result.setText("Twój wynik to: " + getIntent().getStringExtra("BAC") + " ‰");
+        }
 
         final double resultat = Double.valueOf(getIntent().getStringExtra("BAC"));
         if (resultat >= 0 && resultat <= 0.3) {
@@ -61,9 +67,17 @@ public class Result extends AppCompatActivity {
             dodatek = "(No czasami się umiera xD)";
             textView_Result.setText("Typowe objawy:" + "\n" + objawy + "\n" + dodatek);
         }
-        if (resultat > 5) {
+        if (resultat > 5 && resultat <= 10) {
             objawy = "Ty jeszcze żyjesz?";
             textView_Result.setText("Typowe objawy:" + "\n" + objawy);
+        }
+        if (resultat > 10) {
+            objawy = "Jak Ci się to udało? Ciąg alkoholowy? ";
+            textView_Result.setText("Typowe objawy:" + "\n" + objawy);
+        }
+        if (resultat == 9.223372036854776E14){
+            objawy = "Coś poszło nie tak. Uzupełnij dane poprawnie.";
+            textView_Result.setText(objawy);
         }
 
         Button_ResultActivity = findViewById(R.id.Button_ResultActivity);
@@ -76,17 +90,19 @@ public class Result extends AppCompatActivity {
             }
         });
 
-        /*int hours = a / 3600;
-        int minutes = (a % 3600) / 60;
-        String timeString = String.format("%02d:%02d", hours, minutes);*/
+
         double hoursDecimal = (resultat / 0.15);
         double secondsDecimal = hoursDecimal * 3600;
         double rounded = Math.round(secondsDecimal);
         int a = (int) Math.round(rounded);
+        int hours = a / 3600;
+        int minutes = (a % 3600) / 60;
+        String timeString = String.format("%02d h %02d min", hours, minutes);
 
         textView_test = (TextView) findViewById(R.id.textView_test);
-        int timeInSeconds = a;
+        textView_test.setText("Czas do całkowitego wytrzeźwienia:" + "\n" + timeString);
 
+      /*  int timeInSeconds = a;
         final MyRunnable myRunnable = new MyRunnable(timeInSeconds);
          t = new Thread(myRunnable) {
             @Override
@@ -112,7 +128,7 @@ public class Result extends AppCompatActivity {
                 }
             }
         };
-        t.start();
+        t.start();*/
     }
 
 }
